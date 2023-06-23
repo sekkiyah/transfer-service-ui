@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import { CreateTransfer } from './';
 
 const Dashboard = () => {
   const [records, setRecords] = useState([{ name: 'Name1', type: 'Export', url: 'sftp.com' }]);
@@ -28,7 +29,7 @@ const Dashboard = () => {
             })}
         </tbody>
       </Table>
-      <Button variant='success'>Create Transfer</Button>
+      <CreateTransfer />
     </>
   );
 };
