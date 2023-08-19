@@ -1,47 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Tab, Table, Tabs } from 'react-bootstrap';
-import { CreateTransfer } from './';
+import { CreateTransfer, TransferListTable } from './';
 
 const Dashboard = () => {
-  const [transfers, setTransfers] = useState([{ name: 'Name1', type: 'Export', url: 'sftp.com' }]);
+  const [transferListType, setTransferListType] = useState('outbound');
+  const [transferList, setTransferList] = useState([{ name: 'Name1', type: 'Export', url: 'sftp.com' }]);
 
-  const reloadList = key => {
-    console.log('Reloaded', key);
+  const fetchTransferList = async () => {
+    // database call here, then setTransferList
+    console.log('Loaded tab list:', transferListType);
   };
+
+  useEffect(() => {
+    fetchTransferList();
+  }, [transferListType]);
 
   return (
     <>
-      <Tabs className='mb-3' onSelect={key => reloadList(key)}>
+      <Tabs className='mb-0' activeKey={transferListType} onSelect={key => setTransferListType(key)}>
         <Tab eventKey='outbound' title='Outbound'>
           {/* {reloadList()} */}
+          <TransferListTable transferList={transferList} />
         </Tab>
         <Tab eventKey='inbound' title='Inbound'>
           {/* {reloadList()} */}
+          <TransferListTable transferList={transferList} />
         </Tab>
       </Tabs>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transfers &&
-            transfers.length &&
-            transfers.map((record, index) => {
-              return (
-                <tr key={index}>
-                  <td>{record.name}</td>
-                  <td>{record.type}</td>
-                  <td>{record.url}</td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </Table>
-      <CreateTransfer setTransfers={setTransfers} />
+
+      <CreateTransfer />
     </>
   );
 };
