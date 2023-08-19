@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
+import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
+import { TransferDataForm, TransferProtocolForm } from './';
 
-const CreateTransfer = ({ setRecords }) => {
+const CreateTransfer = ({ setTransfers }) => {
   const [showModal, setShowModal] = useState(false);
-  const [newRecord, setNewRecord] = useState({});
+  const [newTransfer, setNewTransfer] = useState({});
+  const [formPage, setFormPage] = useState(1);
+  const formLength = 3;
 
-  const [isFinalForm, setIsFinalForm] = useState(false);
+  const createTransfer = () => {
+    console.log('Submitted', newTransfer);
+  };
 
   return (
     <>
@@ -13,33 +18,62 @@ const CreateTransfer = ({ setRecords }) => {
         Create Transfer
       </Button>
 
-      <Modal show={showModal} size='large'>
+      <Modal show={showModal} size='lg'>
         <Form
           onSubmit={e => {
             e.preventDefault();
-            console.log('Submitted', newRecord);
+            createTransfer();
           }}>
           <Modal.Header closeButton onHide={() => setShowModal(false)}>
-            <Modal.Title>Title</Modal.Title>
+            <Modal.Title>Transfer Configuration</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
-            <h3>Body</h3>
+            {formPage == 1 && (
+              <>
+                <h2>Protocol</h2>
+                <TransferProtocolForm />
+              </>
+            )}
+            {formPage == 2 && (
+              <>
+                <h2>Transfer Configuration</h2>
+                <TransferDataForm />
+              </>
+            )}
+            {formPage == 3 && (
+              <>
+                <h2>Testing</h2>
+              </>
+            )}
           </Modal.Body>
 
           <Modal.Footer className='d-flex justify-content-between'>
-            {newRecord && newRecord.type && (
-              <>
-                <Button variant='secondary'>Previous</Button>
-              </>
-            )}
+            <ButtonGroup>
+              {formPage != 1 && (
+                <>
+                  <Button variant='secondary' onClick={() => setFormPage(val => val - 1)}>
+                    Previous
+                  </Button>
+                </>
+              )}
+            </ButtonGroup>
 
-            {isFinalForm ? (
-              <Button type='submit'>Submit</Button>
-            ) : (
-              <Button variant='success' onClick={() => setIsFinalForm(true)}>
-                Next
-              </Button>
-            )}
+            <ButtonGroup>
+              {formPage == formLength ? (
+                <>
+                  <Button hidden={false} type='submit'>
+                    Create
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant='success' onClick={() => setFormPage(val => val + 1)}>
+                    Next
+                  </Button>
+                </>
+              )}
+            </ButtonGroup>
           </Modal.Footer>
         </Form>
       </Modal>
