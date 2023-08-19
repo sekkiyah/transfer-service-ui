@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
 import { TransferDataForm, TransferProtocolForm } from './';
 
-const CreateTransfer = ({ setTransfers }) => {
+const CreateTransfer = () => {
   const [showModal, setShowModal] = useState(false);
   const [newTransfer, setNewTransfer] = useState({});
   const [formPage, setFormPage] = useState(1);
   const formLength = 3;
 
-  const createTransfer = () => {
+  const createNewTransfer = () => {
     console.log('Submitted', newTransfer);
   };
 
@@ -19,11 +19,7 @@ const CreateTransfer = ({ setTransfers }) => {
       </Button>
 
       <Modal show={showModal} size='lg'>
-        <Form
-          onSubmit={e => {
-            e.preventDefault();
-            createTransfer();
-          }}>
+        <Form onSubmit={e => e.preventDefault()}>
           <Modal.Header closeButton onHide={() => setShowModal(false)}>
             <Modal.Title>Transfer Configuration</Modal.Title>
           </Modal.Header>
@@ -31,14 +27,13 @@ const CreateTransfer = ({ setTransfers }) => {
           <Modal.Body>
             {formPage == 1 && (
               <>
-                <h2>Protocol</h2>
                 <TransferProtocolForm />
               </>
             )}
             {formPage == 2 && (
               <>
                 <h2>Transfer Configuration</h2>
-                <TransferDataForm />
+                <TransferDataForm setNewTransfer={setNewTransfer} />
               </>
             )}
             {formPage == 3 && (
@@ -62,7 +57,7 @@ const CreateTransfer = ({ setTransfers }) => {
             <ButtonGroup>
               {formPage == formLength ? (
                 <>
-                  <Button hidden={false} type='submit'>
+                  <Button hidden={false} type='submit' onClick={() => createNewTransfer()}>
                     Create
                   </Button>
                 </>
