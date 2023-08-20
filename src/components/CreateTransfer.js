@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { TransferDataForm, TransferProtocolForm } from './';
+import { OutboundTransferDataForm, TransferProtocolForm } from './';
 
 const CreateTransfer = () => {
   const [showModal, setShowModal] = useState(false);
   const [newTransfer, setNewTransfer] = useState({});
   const [formPage, setFormPage] = useState(1);
   const formLength = 3;
+
+  console.log('Transfer config data:', newTransfer);
+
+  const clearTransferData = () => {
+    setShowModal(false);
+    setNewTransfer({});
+    setFormPage(1);
+  };
 
   const createNewTransfer = () => {
     console.log('Submitted', newTransfer);
@@ -18,22 +26,25 @@ const CreateTransfer = () => {
         Create Transfer
       </Button>
 
-      <Modal show={showModal} size='lg'>
+      <Modal show={showModal} size='lg' onHide={() => clearTransferData()}>
         <Form onSubmit={e => e.preventDefault()}>
-          <Modal.Header closeButton onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
             <Modal.Title>Transfer Configuration</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
             {formPage == 1 && (
               <>
-                <TransferProtocolForm />
+                <TransferProtocolForm newTransfer={newTransfer} setNewTransfer={setNewTransfer} />
               </>
             )}
             {formPage == 2 && (
               <>
                 <h2>Transfer Configuration</h2>
-                <TransferDataForm setNewTransfer={setNewTransfer} />
+                {newTransfer.type == 'outbound' && (
+                  <OutboundTransferDataForm newTransfer={newTransfer} setNewTransfer={setNewTransfer} />
+                )}
+                {newTransfer.type == 'inbound' && <>{/* TODO */}</>}
               </>
             )}
             {formPage == 3 && (
