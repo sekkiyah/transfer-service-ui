@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TransferDataForm = () => {
+const OutboundTransferDataForm = () => {
   return (
     <div>
       <h3>Transfer Data Form</h3>
@@ -8,4 +8,4 @@ const TransferDataForm = () => {
   );
 };
 
-export default TransferDataForm;
+export default OutboundTransferDataForm;
