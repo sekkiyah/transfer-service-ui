@@ -2,43 +2,55 @@ import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import transferTemplateData from '../data/transferTemplates.json';
 
-const TransferProtocolForm = () => {
-  const [transferType, setTransferType] = useState('');
+const TransferProtocolForm = ({ newTransfer, setNewTransfer }) => {
   const [transferTemplates, setTransferTemplates] = useState([]);
-  const [transferTemplateSelected, setTransferTemplateSelected] = useState('');
 
-  useEffect(() => {
-    if (transferType == 'outbound') {
-      // database call for transfer templates
+  const updateTemplateList = () => {
+    console.log('Database called');
+    if (newTransfer.type == 'outbound') {
+      // database call for outbound transfer templates
+      setTransferTemplates(transferTemplateData);
+    } else if (newTransfer.type == 'inbound') {
+      // database call for inbound transfer templates
       setTransferTemplates(transferTemplateData);
     }
-  }, [transferType]);
+  };
+
+  useEffect(() => {
+    updateTemplateList();
+  }, [newTransfer.type]);
 
   return (
     <>
-      {/* <h3 className='text-center'>Transfer Templates</h3> */}
       <Form.Group className='mb-3'>
-        <Form.Label>Transfer Type</Form.Label>
-        <Form.Select onChange={e => setTransferType(e.target.value)}>
-          <option value=''>Please Select</option>
+        <Form.Label>Type</Form.Label>
+        <Form.Select
+          required
+          value={newTransfer.type}
+          onChange={e => {
+            setNewTransfer({ ...newTransfer, type: e.target.value, transferTemplateId: '' });
+          }}>
+          <option hidden>Please Select</option>
           <option value='outbound'>Export</option>
           <option value='inbound'>Import</option>
         </Form.Select>
       </Form.Group>
 
-      {transferType && (
+      {newTransfer && newTransfer.type && (
         <Form.Group className='mb-3'>
-          <Form.Label>Transfer Template</Form.Label>
-          <Form.Select onChange={e => setTransferTemplateSelected(e.target.value)}>
-            {/* load list of templates here */}
+          <Form.Label>Template</Form.Label>
+          <Form.Select
+            value={newTransfer.transferTemplateId}
+            onChange={e => setNewTransfer({ ...newTransfer, transferTemplateId: e.target.value })}>
             <option value=''>None Selected</option>
+
             {transferTemplates &&
               transferTemplates.length &&
               transferTemplates.map(template => {
-                if (template.type === transferType)
+                if (template.type === newTransfer.type)
                   return (
                     <option key={template.id} value={template.id}>
-                      {template.name}
+                      {template.name} ({template.url})
                     </option>
                   );
               })}
