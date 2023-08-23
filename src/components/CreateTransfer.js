@@ -40,7 +40,6 @@ const CreateTransfer = () => {
             )}
             {formPage == 2 && (
               <>
-                <h2>Transfer Configuration</h2>
                 {newTransfer.type == 'outbound' && (
                   <OutboundTransferDataForm newTransfer={newTransfer} setNewTransfer={setNewTransfer} />
                 )}
