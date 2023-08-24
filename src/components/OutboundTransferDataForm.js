@@ -3,7 +3,17 @@ import { Col, Form, InputGroup, Row } from 'react-bootstrap';
 
 const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
   const generateTransferKey = () => {
-    setNewTransfer({ ...newTransfer, transferKey: 'KXT42Y0PES' });
+    // generate a random alpha numeric value with a length of 10
+    if (!newTransfer.transferKey) {
+      const validKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      const keysArray = [];
+      for (let n = 0; n < 10; n++) {
+        const index = Math.random() * 36;
+        keysArray.push(validKeys.charAt(index));
+      }
+      const transferKey = keysArray.join('');
+      setNewTransfer({ ...newTransfer, transferKey });
+    }
   };
 
   useEffect(() => {
