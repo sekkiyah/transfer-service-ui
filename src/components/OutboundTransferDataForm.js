@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
 
 const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
+  const [showAuth, setShowAuth] = useState(false);
+
   const generateTransferKey = () => {
     // generate a random alpha numeric value with a length of 10
     if (!newTransfer.transferKey) {
@@ -16,9 +18,18 @@ const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
     }
   };
 
+  const updateShowAuthRow = () => {
+    if (!newTransfer.sshEnabled && !newTransfer.passwordEnabled) setShowAuth(false);
+    else setShowAuth(true);
+  };
+
   useEffect(() => {
     generateTransferKey();
   }, []);
+
+  useEffect(() => {
+    updateShowAuthRow();
+  }, [newTransfer.passwordEnabled, newTransfer.sshEnabled]);
 
   return (
     <>
@@ -77,7 +88,6 @@ const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
         </Form.Group>
 
         <Form.Group as={Col} sm='3' className='d-flex flex-column justify-content-end'>
-          {/* <Form.Label></Form.Label> className='mb-0' */}
           <Row className='ms-2'>
             <Form.Check
               label='SSH'
@@ -126,6 +136,74 @@ const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
           </InputGroup>
         </Form.Group>
       </Row>
+
+      {/* Only show row if either ssh or password are checked */}
+      {showAuth && (
+        <Row className='mb-3'>
+          {newTransfer.passwordEnabled ? (
+            <>
+              <Form.Group as={Col} sm='7'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type='text'
+                  value={newTransfer.password || ''}
+                  placeholder='password'
+                  onChange={e => setNewTransfer({ ...newTransfer, password: e.target.value })}
+                />
+              </Form.Group>
+            </>
+          ) : (
+            <></>
+          )}
+
+          {newTransfer.sshEnabled ? (
+            <>
+              <Form.Group as={Col} sm='5'>
+                <Form.Label>SSH Key</Form.Label>
+                <Form.Select
+                  type='option'
+                  value={newTransfer.sshKeyId || ''}
+                  onChange={e => setNewTransfer({ ...newTransfer, sshKeyId: e.target.value })}>
+                  <option hidden>Select a key</option>
+                  <option value='1'>RSA 1024</option>
+                  <option value='2'>RSA 2048</option>
+                  <option value='3'>RSA 4096</option>
+                </Form.Select>
+              </Form.Group>
+            </>
+          ) : (
+            <></>
+          )}
+        </Row>
+      )}
+
+      {newTransfer.pgpEncrypted ? (
+        <>
+          <Row className='mb-3'>
+            <Form.Group as={Col} sm='9'>
+              <Form.Label>PGP Key</Form.Label>
+              <Form.Control
+                type='text'
+                value={newTransfer.pgpKey}
+                placeholder='PGP Recipient or Key ID'
+                onChange={e => setNewTransfer({ ...newTransfer, pgpKey: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} sm='3'>
+              <Form.Label>PGP Extension</Form.Label>
+              <Form.Control
+                type='text'
+                value={newTransfer.pgpExtension || ''}
+                placeholder='.pgp'
+                onChange={e => setNewTransfer({ ...newTransfer, pgpExtension: e.target.value })}
+              />
+            </Form.Group>
+          </Row>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
