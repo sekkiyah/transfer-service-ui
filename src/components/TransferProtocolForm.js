@@ -6,7 +6,6 @@ const TransferProtocolForm = ({ newTransfer, setNewTransfer }) => {
   const [transferTemplates, setTransferTemplates] = useState([]);
 
   const updateTemplateList = () => {
-    console.log('Database called');
     if (newTransfer.type == 'outbound') {
       // database call for outbound transfer templates
       setTransferTemplates(transferTemplateData);
@@ -16,9 +15,19 @@ const TransferProtocolForm = ({ newTransfer, setNewTransfer }) => {
     }
   };
 
+  const updateTemplateSelected = () => {
+    // database call to pull template data by ID
+    const template = transferTemplateData.find(temp => temp.transferTemplateId == newTransfer.transferTemplateId);
+    setNewTransfer({ ...newTransfer, ...template });
+  };
+
   useEffect(() => {
     updateTemplateList();
   }, [newTransfer.type]);
+
+  useEffect(() => {
+    updateTemplateSelected();
+  }, [newTransfer.transferTemplateId]);
 
   return (
     <>
@@ -49,8 +58,8 @@ const TransferProtocolForm = ({ newTransfer, setNewTransfer }) => {
               transferTemplates.map(template => {
                 if (template.type === newTransfer.type)
                   return (
-                    <option key={template.id} value={template.id}>
-                      {template.name} ({template.url})
+                    <option key={template.transferTemplateId} value={template.transferTemplateId}>
+                      {template.transferName} ({template.sftpUrl})
                     </option>
                   );
               })}
