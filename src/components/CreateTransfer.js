@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { OutboundTransferDataForm, TransferProtocolForm } from './';
+import { OutboundTransferDataForm, OutboundTransferAdvancedForm, TransferProtocolForm } from './';
 
 const CreateTransfer = () => {
   const [showModal, setShowModal] = useState(false);
@@ -48,7 +48,10 @@ const CreateTransfer = () => {
             )}
             {formPage == 3 && (
               <>
-                <h2>Testing</h2>
+                {newTransfer.type == 'outbound' && (
+                  <OutboundTransferAdvancedForm newTransfer={newTransfer} setNewTransfer={setNewTransfer} />
+                )}
+                {newTransfer.type == 'inbound' && <>{/* TODO */}</>}
               </>
             )}
           </Modal.Body>

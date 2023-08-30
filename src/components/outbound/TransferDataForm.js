@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
 
-const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
+const TransferDataForm = ({ newTransfer, setNewTransfer }) => {
   const [showAuth, setShowAuth] = useState(false);
 
   const generateTransferKey = () => {
@@ -208,4 +208,4 @@ const OutboundTransferDataForm = ({ newTransfer, setNewTransfer }) => {
   );
 };
 
-export default OutboundTransferDataForm;
+export default TransferDataForm;
