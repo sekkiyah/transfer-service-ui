@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { OutboundTransferDataForm, OutboundTransferAdvancedForm, TransferProtocolForm } from './';
+import { OutboundTransferDataForm, OutboundTransferAdvancedForm, TransferProtocolForm } from '.';
 
-const CreateTransfer = () => {
+const CreateTransferModal = () => {
   const [showModal, setShowModal] = useState(false);
   const [newTransfer, setNewTransfer] = useState({});
   const [formPage, setFormPage] = useState(1);
@@ -89,4 +89,4 @@ const CreateTransfer = () => {
   );
 };
 
-export default CreateTransfer;
+export default CreateTransferModal;
