@@ -23,13 +23,13 @@ const CreateTransferModal = () => {
   return (
     <>
       <Button variant='success' onClick={() => setShowModal(true)}>
-        Create Transfer
+        New Transfer
       </Button>
 
       <Modal show={showModal} size='lg' onHide={() => clearTransferData()}>
         <Form onSubmit={e => e.preventDefault()}>
           <Modal.Header closeButton>
-            <Modal.Title>Transfer Configuration</Modal.Title>
+            <Modal.Title>Transfer Definition</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
