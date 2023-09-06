@@ -8,3 +8,4 @@ export { default as OutboundTransferAdvancedForm } from './outbound/TransferAdva
 
 export { default as CreateTemplateModal } from './CreateTemplateModal';
 export { default as TemplateProtocolForm } from './TemplateProtocolForm';
+export { default as OutboundTemplateDataForm } from './outbound/TemplateDataForm';

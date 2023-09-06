@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { TemplateProtocolForm } from '.';
+import { TemplateProtocolForm, OutboundTemplateDataForm } from '.';
 
 const CreateTemplateModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,7 +38,7 @@ const CreateTemplateModal = () => {
                 <TemplateProtocolForm newTemplate={newTemplate} setNewTemplate={setNewTemplate} />
               </>
             )}
-            {/* {formPage == 2 && (
+            {formPage == 2 && (
               <>
                 {newTemplate.type == 'outbound' && (
                   <OutboundTemplateDataForm newTemplate={newTemplate} setNewTemplate={setNewTemplate} />
@@ -46,7 +46,7 @@ const CreateTemplateModal = () => {
                 {newTemplate.type == 'inbound' && <p> TODO</p>}
               </>
             )}
-            {formPage == 3 && (
+            {/* {formPage == 3 && (
               <>
                 {newTemplate.type == 'outbound' && (
                   <OutboundTemplateAdvancedForm newTemplate={newTemplate} setNewTemplate={setNewTemplate} />
