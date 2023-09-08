@@ -1,0 +1,5 @@
+[
+  ["Authentication success", "Changing directory", "Transferring file", "Permission denied", "File transmit failed"],
+  ["Authentication failed: invalid password"],
+  ["Authentication success", "Changing directory", "Transferring file", "File transmit success"]
+]

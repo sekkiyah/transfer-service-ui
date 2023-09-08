@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Metlife",
+    "type": "outbound",
+    "url": "sftp.metlife.com"
+  },
+  {
+    "id": 2,
+    "name": "BCBS Medical",
+    "type": "outbound",
+    "url": "bcbs.sftp.com"
+  }
+]

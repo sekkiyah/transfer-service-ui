@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Census Sweep",
+    "type": "inbound",
+    "url": "sftp.client.com"
+  },
+  {
+    "id": 2,
+    "name": "Error Report Sweep",
+    "type": "inbound",
+    "url": "sftp.com"
+  }
+]
