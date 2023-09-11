@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { TransferListTable } from '../components';
-import { CreateTransfer, CreateTemplate } from '../pages';
-import transferListOutboundData from '../data/transferListOutbound.json';
-import transferListInboundData from '../data/transferListInbound.json';
+import { CreateTransfer } from '../pages';
+import transferListData from '../data/transferListData.json';
 
 const Dashboard = () => {
   const [transferListType, setTransferListType] = useState('outbound');
@@ -11,8 +10,9 @@ const Dashboard = () => {
 
   const fetchTransferList = async () => {
     // database call here, then setTransferList
-    if (transferListType == 'outbound') setTransferList(transferListOutboundData);
-    else if (transferListType == 'inbound') setTransferList(transferListInboundData);
+    setTransferList(() => {
+      return transferListData.filter(transfer => transfer.type == transferListType);
+    });
   };
 
   useEffect(() => {
@@ -31,7 +31,6 @@ const Dashboard = () => {
       </Tabs>
 
       <CreateTransfer />
-      <CreateTemplate />
     </>
   );
 };

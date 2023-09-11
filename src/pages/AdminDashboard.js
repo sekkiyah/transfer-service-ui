@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { TemplateListTable } from '../components';
 import { CreateTemplate } from '../pages';
-import templateListOutboundData from '../data/templateListOutbound.json';
-import templateListInboundData from '../data/templateListInbound.json';
+import templateListData from '../data/templateListData.json';
 
 const Dashboard = () => {
   const [templateListType, setTemplateListType] = useState('outbound');
-  const [templateList, setTemplateList] = useState([]);
+  const [templateList, setTemplateList] = useState(templateListData);
 
   const fetchTemplateList = async () => {
-    // database call here, then setTemplateList
-    if (templateListType == 'outbound') setTemplateList(templateListOutboundData);
-    else if (templateListType == 'inbound') setTemplateList(templateListInboundData);
+    // database call here, then setTemplateList based on template type
+    setTemplateList(() => {
+      return templateListData.filter(template => template.type == templateListType);
+    });
   };
 
   useEffect(() => {
