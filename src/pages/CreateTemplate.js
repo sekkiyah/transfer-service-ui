@@ -22,7 +22,7 @@ const CreateTemplateModal = () => {
 
   return (
     <>
-      <Button className='ms-4' variant='success' onClick={() => setShowModal(true)}>
+      <Button variant='success' onClick={() => setShowModal(true)}>
         New Template
       </Button>
 

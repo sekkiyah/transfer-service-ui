@@ -8,7 +8,7 @@ const CreateTransferModal = () => {
   const [formPage, setFormPage] = useState(1);
   const formLength = 3;
 
-  console.log('Transfer config data:', newTransfer);
+  console.log('Transfer data:', newTransfer);
 
   const clearTransferData = () => {
     setShowModal(false);
