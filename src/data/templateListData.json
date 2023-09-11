@@ -1,0 +1,52 @@
+[
+  {
+    "type": "outbound",
+    "name": "Cigna Global",
+    "id": 1,
+    "sftpUrl": "sftp.cigna.com",
+    "username": "cig",
+    "directory": "prod/1234",
+    "passwordEnabled": true,
+    "sshEnabled": true,
+    "pgpEncrypted": true,
+    "maxRetries": 3
+  },
+  {
+    "type": "outbound",
+    "name": "Metlife",
+    "id": 2,
+    "sftpUrl": "sftp.metlife.com",
+    "username": "bsc_metlife",
+    "directory": "inbound/client",
+    "passwordEnabled": true,
+    "sshEnabled": false,
+    "pgpEncrypted": false
+  },
+  {
+    "type": "outbound",
+    "name": "BCBS IL",
+    "id": 3,
+    "sftpUrl": "sftp.bcbs.com",
+    "username": "bcbs_bsc",
+    "directory": "prod",
+    "passwordEnabled": false,
+    "sshEnabled": true,
+    "pgpEncrypted": true
+  },
+  {
+    "type": "inbound",
+    "name": "Metlife Error Report Sweep",
+    "id": 6,
+    "sftpUrl": "sftp.metlife.com",
+    "username": "bsc_metlife",
+    "directory": "outbound"
+  },
+  {
+    "type": "inbound",
+    "name": "Amino Report Sweep",
+    "id": 7,
+    "sftpUrl": "amino.sftp.com",
+    "username": "amino",
+    "directory": "client/prod"
+  }
+]

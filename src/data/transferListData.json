@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Metlife",
+    "type": "outbound",
+    "url": "sftp.metlife.com"
+  },
+  {
+    "id": 2,
+    "name": "BCBS Medical",
+    "type": "outbound",
+    "url": "bcbs.sftp.com"
+  },
+  {
+    "id": 3,
+    "name": "Census Sweep",
+    "type": "inbound",
+    "url": "sftp.client.com"
+  },
+  {
+    "id": 4,
+    "name": "Error Report Sweep",
+    "type": "inbound",
+    "url": "sftp.com"
+  }
+]
