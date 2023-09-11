@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { TemplateProtocolForm, OutboundTemplateDataForm } from '.';
+import { TemplateProtocolForm, OutboundTemplateDataForm } from '../components';
 
 const CreateTemplateModal = () => {
   const [showModal, setShowModal] = useState(false);

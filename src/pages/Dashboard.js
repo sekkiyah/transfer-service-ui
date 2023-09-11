@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
-import { CreateTransferModal, CreateTemplateModal, TransferListTable } from './';
+import { TransferListTable } from '../components';
+import { CreateTransfer, CreateTemplate } from '../pages';
 import transferListOutboundData from '../data/transferListOutbound.json';
 import transferListInboundData from '../data/transferListInbound.json';
 
@@ -29,8 +30,8 @@ const Dashboard = () => {
         </Tab>
       </Tabs>
 
-      <CreateTransferModal />
-      <CreateTemplateModal />
+      <CreateTransfer />
+      <CreateTemplate />
     </>
   );
 };

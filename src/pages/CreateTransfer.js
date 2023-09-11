@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { OutboundTransferDataForm, OutboundTransferAdvancedForm, TransferProtocolForm } from '.';
+import { OutboundTransferDataForm, OutboundTransferAdvancedForm, TransferProtocolForm } from '../components';
 
 const CreateTransferModal = () => {
   const [showModal, setShowModal] = useState(false);
