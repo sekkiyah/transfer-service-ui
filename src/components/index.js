@@ -1,5 +1,6 @@
 export { default as NavigationBar } from './NavigationBar';
 export { default as TransferListTable } from './TransferListTable';
+export { default as TemplateListTable } from './TemplateListTable';
 
 export { default as TransferProtocolForm } from './TransferProtocolForm';
 export { default as OutboundTransferDataForm } from './outbound/TransferDataForm';
