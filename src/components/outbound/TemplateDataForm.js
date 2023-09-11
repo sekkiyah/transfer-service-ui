@@ -22,9 +22,9 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
           <Form.Label>Template Name</Form.Label>
           <Form.Control
             type='text'
-            value={newTemplate.templateName || ''}
+            value={newTemplate.name || ''}
             placeholder='Carrier Global SFTP'
-            onChange={e => setNewTemplate({ ...newTemplate, templateName: e.target.value })}
+            onChange={e => setNewTemplate({ ...newTemplate, name: e.target.value })}
           />
         </Form.Group>
 

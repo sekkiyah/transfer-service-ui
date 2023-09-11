@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import transferTemplateData from '../data/transferTemplates.json';
+import templateListData from '../data/templateListData.json';
 
 const TransferProtocolForm = ({ newTransfer, setNewTransfer }) => {
   const [transferTemplates, setTransferTemplates] = useState([]);
 
   const updateTemplateList = () => {
-    if (newTransfer.type == 'outbound') {
-      // database call for outbound transfer templates
-      setTransferTemplates(transferTemplateData);
-    } else if (newTransfer.type == 'inbound') {
-      // database call for inbound transfer templates
-      setTransferTemplates(transferTemplateData);
-    }
+    // database call for transfer templates to update drop down list
+    setTransferTemplates(() => {
+      return templateListData.filter(template => template.type == newTransfer.type);
+    });
   };
 
   const updateTemplateSelected = () => {
     // database call to pull template data by ID
-    const template = transferTemplateData.find(temp => temp.transferTemplateId == newTransfer.transferTemplateId);
-    setNewTransfer({ ...newTransfer, ...template });
+    const result = templateListData.find(template => template.id == newTransfer.transferTemplateId);
+    setNewTransfer({ ...newTransfer, ...result });
   };
 
   useEffect(() => {
@@ -58,8 +55,8 @@ const TransferProtocolForm = ({ newTransfer, setNewTransfer }) => {
               transferTemplates.map(template => {
                 if (template.type === newTransfer.type)
                   return (
-                    <option key={template.transferTemplateId} value={template.transferTemplateId}>
-                      {template.transferName} ({template.sftpUrl})
+                    <option key={template.id} value={template.id}>
+                      {template.name} ({template.sftpUrl})
                     </option>
                   );
               })}

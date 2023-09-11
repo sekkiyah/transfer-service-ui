@@ -38,9 +38,9 @@ const TransferDataForm = ({ newTransfer, setNewTransfer }) => {
           <Form.Label>Transfer Name</Form.Label>
           <Form.Control
             type='text'
-            value={newTransfer.transferName || ''}
+            value={newTransfer.name || ''}
             placeholder='Carrier Global SFTP'
-            onChange={e => setNewTransfer({ ...newTransfer, transferName: e.target.value })}
+            onChange={e => setNewTransfer({ ...newTransfer, name: e.target.value })}
           />
         </Form.Group>
 
