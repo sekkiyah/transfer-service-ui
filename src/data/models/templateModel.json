@@ -1,0 +1,63 @@
+{
+  "templateData": {
+    "type": "string",
+    "id": "primaryKey",
+    "name": "string",
+
+    "lockedFields": ["url", "username", "password"],
+
+    "sftpUrl": "string",
+    "username": "string",
+    "passwordEnabled": "boolean",
+    "password": "string",
+    "port": "int",
+    "filename": "string",
+    "serverFilename": "string",
+    "directory": "string",
+
+    "sshEnabled": "boolean",
+    "sshKeyId": "primaryKey",
+
+    "pgpEncrypted": "boolean",
+    "pgpKey": "string",
+    "pgpExtension": "string",
+    "pgpSign": "boolean",
+
+    "timeout": "int",
+    "maxRetries": "int",
+    "reconnectInterval": "int",
+    "sshKexAlgorithm": "string",
+    "sshHostkeyAlgorithm": "string"
+  },
+
+  "templateSampleData": {
+    "type": "outbound,inbound",
+    "id": "Database ID",
+    "name": "Template Name",
+
+    "lockedFields": ["Array of field name strings"],
+
+    "sftpUrl": "Server address",
+    "username": "Server username",
+    "passwordEnabled": "Boolean if password should be used during authentication.",
+    "password": "Server password",
+    "port": "Server port number",
+    "filename": "Outbound: File name to send as. Inbound: File name to save to our server.",
+    "serverFilename": "Inbound Only: Filename to look for on external server.",
+    "directory": "File directory path",
+
+    "sshEnabled": "Boolean if ssh key should be used during authentication.",
+    "sshKeyId": "SSH key to be used",
+
+    "pgpEncrypted": "Boolean if file should be pgp encrypted",
+    "pgpKey": "PGP key to be used",
+    "pgpExtension": "File extension to use for pgp encrypted file (example '.pgp')",
+    "pgpSign": "Boolean if file should be signed with pgp key",
+
+    "timeout": "Connection timeout length",
+    "maxRetries": "Number of retry attempts",
+    "reconnectInterval": "Length between connection attempts",
+    "sshKexAlgorithm": "Key exchange algorithm to use (For old sftp servers)",
+    "sshHostkeyAlgorithm": "SSH host key algorithm to use (For old sftp servers)"
+  }
+}
