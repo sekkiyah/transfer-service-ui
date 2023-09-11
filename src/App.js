@@ -7,9 +7,8 @@ import { Dashboard, AdminDashboard } from './pages';
 const App = () => {
   return (
     <>
-      <Container>
-        <NavigationBar />
-        <h1 className='text-center'>Transfer Service UI</h1>
+      <NavigationBar />
+      <Container id='appWindow' className='p-2'>
         <Routes>
           <Route path='/' element={<Dashboard />} />
           <Route path='/admin' element={<AdminDashboard />} />
