@@ -45,7 +45,6 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm='1' className='p-0'>
-          {/* Copy here */}
           <FontAwesomeIcon icon={faLock} />
           <Form.Check className='mt-2' />
         </Form.Group>
@@ -60,7 +59,6 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm='1' className='p-0'>
-          {/* Copy here */}
           <FontAwesomeIcon icon={faLock} />
           <Form.Check className='mt-2' />
         </Form.Group>
@@ -78,7 +76,6 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
         </Form.Group>
 
         <Form.Group as={Col} sm='2' className='d-flex flex-column align-items-end'>
-          {/* Copy here */}
           <Form.Label>
             Auth <FontAwesomeIcon icon={faLock} />
           </Form.Label>
@@ -120,7 +117,6 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm='1' className='p-0'>
-          {/* Copy here */}
           <FontAwesomeIcon icon={faLock} />
           <Form.Check className='mt-2' />
         </Form.Group>
@@ -138,7 +134,6 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
           </InputGroup>
         </Form.Group>
         <Form.Group as={Col} sm='1' className='p-0'>
-          {/* Copy here */}
           <FontAwesomeIcon icon={faLock} />
           <Form.Check className='mt-2' />
         </Form.Group>
@@ -149,7 +144,7 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
         <Row className='mb-3'>
           {newTemplate.passwordEnabled ? (
             <>
-              <Form.Group as={Col} sm='7'>
+              <Form.Group as={Col} sm='6'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type='text'
@@ -158,6 +153,10 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
                   onChange={e => setNewTemplate({ ...newTemplate, password: e.target.value })}
                 />
               </Form.Group>
+              <Form.Group as={Col} sm='1' className='p-0'>
+                <FontAwesomeIcon icon={faLock} />
+                <Form.Check className='mt-2' />
+              </Form.Group>
             </>
           ) : (
             <></>
@@ -165,7 +164,7 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
 
           {newTemplate.sshEnabled ? (
             <>
-              <Form.Group as={Col} sm='5'>
+              <Form.Group as={Col} sm='4'>
                 <Form.Label>SSH Key</Form.Label>
                 <Form.Select
                   type='option'
@@ -177,6 +176,10 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
                   <option value='3'>RSA 4096</option>
                 </Form.Select>
               </Form.Group>
+              <Form.Group as={Col} sm='1' className='p-0'>
+                <FontAwesomeIcon icon={faLock} />
+                <Form.Check className='mt-2' />
+              </Form.Group>
             </>
           ) : (
             <></>
@@ -187,7 +190,7 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
       {newTemplate.pgpEncrypted ? (
         <>
           <Row className='mb-3'>
-            <Form.Group as={Col} sm='9'>
+            <Form.Group as={Col} sm='7'>
               <Form.Label>PGP Key</Form.Label>
               <Form.Control
                 type='text'
@@ -204,6 +207,15 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
                 value={newTemplate.pgpExtension || ''}
                 placeholder='.pgp'
                 onChange={e => setNewTemplate({ ...newTemplate, pgpExtension: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} sm='2'>
+              <Form.Label>PGP Sign</Form.Label>
+              <Form.Check
+                className='ps-4'
+                checked={newTemplate.pgpSign || ''}
+                onChange={e => setNewTemplate({ ...newTemplate, pgpSign: e.target.checked })}
               />
             </Form.Group>
           </Row>

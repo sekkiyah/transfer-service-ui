@@ -180,7 +180,7 @@ const TransferDataForm = ({ newTransfer, setNewTransfer }) => {
       {newTransfer.pgpEncrypted ? (
         <>
           <Row className='mb-3'>
-            <Form.Group as={Col} sm='9'>
+            <Form.Group as={Col} sm='7'>
               <Form.Label>PGP Key</Form.Label>
               <Form.Control
                 type='text'
@@ -197,6 +197,15 @@ const TransferDataForm = ({ newTransfer, setNewTransfer }) => {
                 value={newTransfer.pgpExtension || ''}
                 placeholder='.pgp'
                 onChange={e => setNewTransfer({ ...newTransfer, pgpExtension: e.target.value })}
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} sm='2'>
+              <Form.Label>PGP Sign</Form.Label>
+              <Form.Check
+                className='ps-4'
+                checked={newTransfer.pgpSign || ''}
+                onChange={e => setNewTransfer({ ...newTransfer, pgpSign: e.target.checked })}
               />
             </Form.Group>
           </Row>
