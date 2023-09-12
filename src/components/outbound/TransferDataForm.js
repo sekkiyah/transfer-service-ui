@@ -184,7 +184,7 @@ const TransferDataForm = ({ newTransfer, setNewTransfer }) => {
               <Form.Label>PGP Key</Form.Label>
               <Form.Control
                 type='text'
-                value={newTransfer.pgpKey}
+                value={newTransfer.pgpKey || ''}
                 placeholder='PGP Recipient or Key ID'
                 onChange={e => setNewTransfer({ ...newTransfer, pgpKey: e.target.value })}
               />

@@ -194,7 +194,7 @@ const TemplateDataForm = ({ newTemplate, setNewTemplate }) => {
               <Form.Label>PGP Key</Form.Label>
               <Form.Control
                 type='text'
-                value={newTemplate.pgpKey}
+                value={newTemplate.pgpKey || ''}
                 placeholder='PGP Recipient or Key ID'
                 onChange={e => setNewTemplate({ ...newTemplate, pgpKey: e.target.value })}
               />
