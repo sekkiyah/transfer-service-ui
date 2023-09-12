@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import { TransferListTable } from '../components';
-import { CreateTransfer } from '../pages';
+import { CreateTransfer } from '.';
 import transferListData from '../data/transferListData.json';
 
-const Dashboard = () => {
+const UserDashboard = () => {
   const [transferListType, setTransferListType] = useState('outbound');
   const [transferList, setTransferList] = useState([]);
 
@@ -35,4 +35,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default UserDashboard;

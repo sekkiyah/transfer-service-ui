@@ -4,7 +4,7 @@ import { TemplateListTable } from '../components';
 import { CreateTemplate } from '../pages';
 import templateListData from '../data/templateListData.json';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const [templateListType, setTemplateListType] = useState('outbound');
   const [templateList, setTemplateList] = useState(templateListData);
 
@@ -35,4 +35,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;
