@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Form, Modal } from 'react-bootstrap';
-import { TemplateProtocolForm, OutboundTemplateDataForm } from '../components';
+import { TemplateProtocolForm, OutboundTemplateDataForm, OutboundTemplateAdvancedForm } from '../components';
 
 const CreateTemplateModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -46,14 +46,14 @@ const CreateTemplateModal = () => {
                 {newTemplate.type == 'inbound' && <p> TODO</p>}
               </>
             )}
-            {/* {formPage == 3 && (
+            {formPage == 3 && (
               <>
                 {newTemplate.type == 'outbound' && (
                   <OutboundTemplateAdvancedForm newTemplate={newTemplate} setNewTemplate={setNewTemplate} />
                 )}
                 {newTemplate.type == 'inbound' && <p>TODO</p>}
               </>
-            )} */}
+            )}
           </Modal.Body>
 
           <Modal.Footer className='d-flex justify-content-between'>
