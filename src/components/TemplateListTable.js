@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap';
 
 const TemplateListTable = ({ templateList, templateType }) => {
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover size='sm' className='text-center'>
       {templateType == 'outbound' && (
         <>
           <thead>

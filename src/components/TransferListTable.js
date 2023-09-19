@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap';
 
 const TransferListTable = ({ transferList, transferType }) => {
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover size='sm' className='text-center'>
       {transferType == 'outbound' && (
         <>
           <thead>
