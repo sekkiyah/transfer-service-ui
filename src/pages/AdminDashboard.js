@@ -24,10 +24,10 @@ const AdminDashboard = () => {
       <h3 className='text-center'>Transfer Templates</h3>
       <Tabs className='mb-0' activeKey={templateListType} onSelect={key => setTemplateListType(key)}>
         <Tab eventKey='outbound' title='Outbound'>
-          <TemplateListTable templateList={templateList} />
+          <TemplateListTable templateList={templateList} templateType={templateListType} />
         </Tab>
         <Tab eventKey='inbound' title='Inbound'>
-          <TemplateListTable templateList={templateList} />
+          <TemplateListTable templateList={templateList} templateType={templateListType} />
         </Tab>
       </Tabs>
 
