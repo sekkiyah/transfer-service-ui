@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Cigna PPO",
+    "type": "export",
+    "runDate": "2020-01-01T06:00:00.000Z",
+    "category": "medical",
+    "transferLogs": [
+      {
+        "transferDefinition": "Cigna"
+      }
+    ]
+  },
+  {
+    "name": "Delta Dental",
+    "type": "export",
+    "runDate": "2020-04-20T05:00:00.000Z",
+    "category": "dental",
+    "transferLogs": []
+  },
+  {
+    "name": "VSP",
+    "type": "export",
+    "runDate": "2021-08-15T05:00:00.000Z",
+    "category": "vision",
+    "transferLogs": []
+  },
+  {
+    "name": "Lincoln Financial",
+    "type": "export",
+    "runDate": "2022-12-01T21:48:22.000Z",
+    "category": "life",
+    "transferLogs": []
+  },
+  {
+    "name": "Kaiser HMO",
+    "type": "export",
+    "runDate": "2023-10-07T09:28:52.000Z",
+    "category": "medical",
+    "transferLogs": []
+  }
+]
