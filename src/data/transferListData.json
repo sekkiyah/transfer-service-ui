@@ -3,13 +3,19 @@
     "id": 1,
     "name": "Metlife",
     "type": "outbound",
-    "url": "sftp.metlife.com"
+    "url": "sftp.metlife.com",
+    "directory": "toMet",
+    "transferKey": "XBI2L0Q5HI",
+    "filename": "Metlife_VB_[yyyymmdd].txt"
   },
   {
     "id": 2,
     "name": "BCBS Medical",
     "type": "outbound",
-    "url": "bcbs.sftp.com"
+    "url": "bcbs.sftp.com",
+    "directory": "inbound/321",
+    "transferKey": "4ORTTPTMGA",
+    "filename": "BCBS_PPO_Mem_[yyyymmdd].csv"
   },
   {
     "id": 3,

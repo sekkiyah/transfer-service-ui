@@ -21,12 +21,13 @@ const UserDashboard = () => {
 
   return (
     <>
+      <h3 className='text-center'>Transfer Definitions</h3>
       <Tabs className='mb-0' activeKey={transferListType} onSelect={key => setTransferListType(key)}>
         <Tab eventKey='outbound' title='Outbound'>
-          <TransferListTable transferList={transferList} />
+          <TransferListTable transferList={transferList} transferType={transferListType} />
         </Tab>
         <Tab eventKey='inbound' title='Inbound'>
-          <TransferListTable transferList={transferList} />
+          <TransferListTable transferList={transferList} transferType={transferListType} />
         </Tab>
       </Tabs>
 
