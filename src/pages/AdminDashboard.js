@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
-import { TemplateListTable } from '../components';
+import { Col, Row, Tab, Tabs } from 'react-bootstrap';
+import { SearchBar, TemplateListTable } from '../components';
 import { CreateTemplate } from '../pages';
 import templateListData from '../data/templateListData.json';
 
@@ -24,8 +24,15 @@ const AdminDashboard = () => {
       <h3 className='text-center'>Transfer Templates</h3>
       <Tabs className='mb-0' activeKey={templateListType} onSelect={key => setTemplateListType(key)}>
         <Tab eventKey='outbound' title='Outbound'>
+          <Row className='my-2 justify-content-end'>
+            <Col sm='4' className='m-0'>
+              <SearchBar />
+            </Col>
+          </Row>
+
           <TemplateListTable templateList={templateList} templateType={templateListType} />
         </Tab>
+
         <Tab eventKey='inbound' title='Inbound'>
           <TemplateListTable templateList={templateList} templateType={templateListType} />
         </Tab>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
-import { FileListTable } from '../components';
+import { Col, Row, Tab, Tabs } from 'react-bootstrap';
+import { FileListTable, SearchBar } from '../components';
 import fileListData from '../data/fileListData.json';
 
 const FileDashboard = () => {
@@ -19,11 +19,18 @@ const FileDashboard = () => {
 
   return (
     <>
-      <h3 className='text-center'>File Dashboard</h3>
+      <h3 className='text-center'>EDI Dashboard</h3>
       <Tabs className='mb-0' activeKey={fileListType} onSelect={key => setFileListType(key)}>
         <Tab eventKey='export' title='Export'>
+          <Row className='my-2 justify-content-end'>
+            <Col sm='4' className='m-0'>
+              <SearchBar />
+            </Col>
+          </Row>
+
           <FileListTable fileList={fileList} fileType={fileListType} />
         </Tab>
+
         <Tab eventKey='import' title='Import'>
           <FileListTable fileList={fileList} fileType={fileListType} />
         </Tab>
