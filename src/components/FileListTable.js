@@ -1,7 +1,8 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
+import FileStatusDetails from './FileStatusDetails';
 
 const FileListTable = ({ fileList, fileType }) => {
   return (
@@ -12,9 +13,9 @@ const FileListTable = ({ fileList, fileType }) => {
             <tr>
               <th>File Name</th>
               <th>File</th>
-              <th>Usage</th>
               <th>File Status</th>
               <th>Transfer Status</th>
+              <th>Usage</th>
               <th>Begin Date</th>
               <th>End Date</th>
               <th>Mode</th>
@@ -25,21 +26,24 @@ const FileListTable = ({ fileList, fileType }) => {
               <th>Terms</th>
               <th>Started</th>
               <th>Duration</th>
-              <th>Details</th>
             </tr>
           </thead>
           <tbody>
             {fileList && fileList.length ? (
               fileList.map((file, index) => {
+                const transferStatus = file.transferLogs.length > 0 ? file.transferLogs[0].status : 'N/A';
+
                 return (
                   <tr key={index}>
                     <td>{file.name}</td>
-                    <td className='text-center'>
+                    <td>
                       <FontAwesomeIcon icon={faFileArrowDown} />
                     </td>
+                    <td>
+                      <FileStatusDetails file={file} />
+                    </td>
+                    <td>{transferStatus}</td>
                     <td>{file.usage}</td>
-                    <td>{file.status}</td>
-                    <td>Trfr Stat</td>
                     <td>{file.beginDate}</td>
                     <td>{file.endDate}</td>
                     <td>{file.mode}</td>
@@ -50,7 +54,9 @@ const FileListTable = ({ fileList, fileType }) => {
                     <td>{file.termCount}</td>
                     <td>{file.runDate}</td>
                     <td>{file.runDuration}</td>
-                    <td>D</td>
+                    <td>
+                      <Button variant='secondary'>Transfer</Button>
+                    </td>
                   </tr>
                 );
               })
