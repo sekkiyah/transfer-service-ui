@@ -6,7 +6,7 @@ const FileStatusDetails = ({ file }) => {
 
   return (
     <>
-      <Button variant='link' onClick={() => setShowModal(true)} size='sm'>
+      <Button variant='link' onClick={() => setShowModal(true)}>
         {file.status}
       </Button>
 
