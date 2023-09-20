@@ -17,7 +17,11 @@
     "runDuration": "30:24",
     "transferLogs": [
       {
-        "transferDefinition": "Cigna"
+        "transferDefinition": {},
+        "transferDate": "01/01/2020 2:51AM",
+        "status": "Complete",
+        "logMessage": "Authentication success\nChanging directory\nTransferring file\nFile transmit success",
+        "transferredBy": "System"
       }
     ]
   },
@@ -37,7 +41,31 @@
     "changeCount": "2",
     "termCount": "1",
     "runDuration": "3:04",
-    "transferLogs": []
+    "transferLogs": [
+      {
+        "transferDefinition": {},
+        "transferDate": "04/20/2020 12:01PM",
+        "status": "Complete",
+        "logMessage": "Authentication success\nChanging directory\nTransferring file\nFile transmit success",
+        "transferredBy": "shinshaw123"
+      },
+      {
+        "transferDefinition": {},
+        "transferDate": "04/20/2020 10:50AM",
+        "status": "Error",
+        "errorMessage": "Invalid password",
+        "logMessage": "Authentication failed: invalid password",
+        "transferredBy": "shinshaw123"
+      },
+      {
+        "transferDefinition": {},
+        "transferDate": "04/20/2020 10:31AM",
+        "status": "Error",
+        "errorMessage": "Invalid password",
+        "logMessage": "Authentication failed: invalid password",
+        "transferredBy": "shinshaw123"
+      }
+    ]
   },
   {
     "name": "VSP",
@@ -73,7 +101,16 @@
     "changeCount": "3",
     "termCount": "2",
     "runDuration": "10:04",
-    "transferLogs": []
+    "transferLogs": [
+      {
+        "transferDefinition": {},
+        "transferDate": "10/31/2022 9:58AM",
+        "status": "Error",
+        "errorMessage": "Permission denied",
+        "logMessage": "Authentication success\nChanging directory\nTransferring file\nPermission denied\nFile transmit failed",
+        "transferredBy": "System"
+      }
+    ]
   },
   {
     "name": "Kaiser HMO",
