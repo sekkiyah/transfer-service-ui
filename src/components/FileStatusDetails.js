@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Form, Modal, Row, Table } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 const FileStatusDetails = ({ file }) => {
   const [showModal, setShowModal] = useState(false);
