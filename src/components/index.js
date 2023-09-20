@@ -1,11 +1,12 @@
 export { default as NavigationBar } from './NavigationBar';
 export { default as SearchBar } from '../components/SearchBar';
-export { default as FileStatusDetails } from '../components/FileStatusDetails';
 
 export { default as TransferListTable } from './TransferListTable';
 export { default as TemplateListTable } from './TemplateListTable';
 
 export { default as FileListTable } from './FileListTable';
+export { default as FileStatusDetails } from '../components/FileStatusDetails';
+export { default as FileTransferDetails } from '../components/FileTransferDetails';
 
 export { default as TransferProtocolForm } from './TransferProtocolForm';
 export { default as OutboundTransferDataForm } from './outbound/TransferDataForm';

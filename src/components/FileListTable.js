@@ -28,10 +28,10 @@ const FileListTable = ({ fileList, fileType }) => {
               <th>Duration</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='align-middle'>
             {fileList && fileList.length ? (
               fileList.map((file, index) => {
-                const transferStatus = file.transferLogs.length > 0 ? file.transferLogs[0].status : 'N/A';
+                const transferStatus = file.transferLogs.length > 0 ? <FileTransferDetails file={file} /> : 'N/A';
 
                 return (
                   <tr key={index}>
@@ -55,6 +55,7 @@ const FileListTable = ({ fileList, fileType }) => {
                     <td>{file.runDate}</td>
                     <td>{file.runDuration}</td>
                     <td>
+                      {/* TO DO - Build out component */}
                       <Button variant='secondary'>Transfer</Button>
                     </td>
                   </tr>
