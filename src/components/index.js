@@ -1,5 +1,7 @@
 export { default as NavigationBar } from './NavigationBar';
 export { default as SearchBar } from '../components/SearchBar';
+export { default as FileStatusDetails } from '../components/FileStatusDetails';
+
 export { default as TransferListTable } from './TransferListTable';
 export { default as TemplateListTable } from './TemplateListTable';
 
