@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
-import FileStatusDetails from './FileStatusDetails';
+import { FileStatusDetails, FileTransferDetails } from './';
 
 const FileListTable = ({ fileList, fileType }) => {
   return (
