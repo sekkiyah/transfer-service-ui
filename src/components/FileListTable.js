@@ -54,10 +54,10 @@ const FileListTable = ({ fileList, fileType }) => {
                     <td>{file.termCount}</td>
                     <td>{file.runDate}</td>
                     <td>{file.runDuration}</td>
-                    <td>
-                      {/* TO DO - Build out component */}
+                    {/* <td>
+                      TO DO - Build out component
                       <Button variant='secondary'>Transfer</Button>
-                    </td>
+                    </td> */}
                   </tr>
                 );
               })

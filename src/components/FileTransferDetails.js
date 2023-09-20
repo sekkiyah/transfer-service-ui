@@ -7,7 +7,7 @@ const FileTransferDetails = ({ file }) => {
   return (
     <>
       <Button variant='link' onClick={() => setShowModal(true)}>
-        Status
+        {file.transferLogs[0].status}
       </Button>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
