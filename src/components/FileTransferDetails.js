@@ -35,34 +35,6 @@ const FileTransferDetails = ({ file }) => {
               );
             })}
         </Modal.Body>
-
-        {/* <Modal.Body as={Table} size='sm' className='text-center'>
-          <thead>
-            <tr>
-              <th>Attempt</th>
-              <th>Ran By</th>
-              <th>Status</th>
-              <th>Message</th>
-            </tr>
-          </thead>
-          <tbody>
-            {file.transferLogs && file.transferLogs.length ? (
-              file.transferLogs.map((transferLog, index) => {
-                index++;
-                return (
-                  <tr>
-                    <td>{index}</td>
-                    <td>{transferLog.transferredBy}</td>
-                    <td>{transferLog.status}</td>
-                    <td>{transferLog.logMessage}</td>
-                  </tr>
-                );
-              })
-            ) : (
-              <></>
-            )}
-          </tbody>
-        </Modal.Body> */}
       </Modal>
     </>
   );
