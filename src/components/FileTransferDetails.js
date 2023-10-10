@@ -12,7 +12,7 @@ const FileTransferDetails = ({ file }) => {
 
       <Modal size='lg' show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>{file.name}</Modal.Title>
+          <Modal.Title>{file.name} - Transfer Details</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
