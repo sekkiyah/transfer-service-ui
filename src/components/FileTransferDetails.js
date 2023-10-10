@@ -21,7 +21,6 @@ const FileTransferDetails = ({ file }) => {
             file.transferLogs.map((transferLog, index) => {
               const runCount = file.transferLogs.length - index;
               const lineCount = transferLog.logMessage.split('\n').length;
-              console.log(transferLog.logMessage, lineCount);
 
               return (
                 <Accordion key={index}>
